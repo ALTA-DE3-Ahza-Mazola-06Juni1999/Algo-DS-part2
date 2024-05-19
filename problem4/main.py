@@ -1,5 +1,14 @@
 def count_item_and_sort(items):
-    result = ""
+    items.sort()
+    count = {}
+
+    for item in items:
+        count[item] = count.get(item, 0) + 1
+
+    sorted_items = sorted(count.items(), key=lambda x: x[1])
+
+    result = " ".join([f"{item[0]}->{item[1]}" for item in sorted_items])
+    
     return result
 
 if __name__ == "__main__":
